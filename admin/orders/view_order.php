@@ -51,23 +51,23 @@ if($order->num_rows > 0){
                     <tr>
                         <td><?php echo $row['quantity'] ?></td>
                         <td><?php echo $row['unit'] ?></td>
-                        <td><?php echo $row['product_name'] ." ({$row['size']}) " ?></td>
-                        <td class="text-right"><?php echo number_format($row['price']) ?></td>
-                        <td class="text-right"><?php echo number_format($row['price'] * $row['quantity']) ?></td>
+                        <td><?php echo $row['product_name'] ?></td>
+                        <td class="text-right">₱<?php echo number_format($row['price'], 2) ?></td>
+                        <td class="text-right">₱<?php echo number_format($row['price'] * $row['quantity'], 2) ?></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th colspan='4'  class="text-right">Total</th>
-                        <th class="text-right"><?php echo number_format($amount) ?></th>
+                        <th class="text-right">₱<?php echo number_format($amount, 2) ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
         <div class="row">
             <div class="col-6">
-                <p>Payment Method: <?php echo $payment_method ?></p>
+                <p>Payment Method: <?php echo strtoupper($payment_method) ?></p>
                 <p>Payment Status: <?php echo $paid == 0 ? '<span class="badge badge-light">Unpaid</span>' : '<span class="badge badge-success">Paid</span>' ?></p>
             </div>
             <div class="col-6 row row-cols-2">
@@ -105,6 +105,9 @@ if($order->num_rows > 0){
     </div>
 </div>
 <div class="modal-footer">
+    <?php if(isset($_GET['view'])): ?>
+    <button type="button" class="btn btn-danger" id="cancel_order">Cancel Order</button>
+    <?php endif; ?>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 </div>
 <?php if(isset($_GET['view'])): ?>
@@ -119,5 +122,32 @@ if($order->num_rows > 0){
         $('#update_status').click(function(){
             uni_modal("Update Status", "./orders/update_status.php?oid=<?php echo $id ?>&status=<?php echo $status ?>")
         })
+        
+        $('#cancel_order').click(function(){
+            _conf("Are you sure to cancel this order?", "cancel_order", [<?php echo $id ?>])
+        })
     })
+
+    function cancel_order($id){
+        start_loader();
+        $.ajax({
+            url: _base_url_+"classes/Master.php?f=cancel_order",
+            method: "POST",
+            data: {id: $id},
+            dataType: "json",
+            error: err => {
+                console.log(err)
+                alert_toast("An error occurred", 'error');
+                end_loader();
+            },
+            success: function(resp){
+                if(typeof resp == 'object' && resp.status == 'success'){
+                    location.reload();
+                }else{
+                    alert_toast("An error occurred", 'error');
+                    end_loader();
+                }
+            }
+        })
+    }
 </script>
