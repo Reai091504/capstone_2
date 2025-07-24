@@ -1,6 +1,7 @@
 <?php
   // require_once('sess_auth.php');
-  
+  // Set your manual image path here (relative to base_url or absolute URL)
+  $main_header_bg = 'uploads/bghome.jpg'; // Example: 'uploads/banner.jpg' or leave blank for no image
 ?>
 <head>
     <meta charset="utf-8">
@@ -29,7 +30,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/adminlte.css">
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/custom.css">
-    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo base_url ?>customer/assets/css/styles.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?php echo base_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -54,10 +55,11 @@
         var _base_url_ = '<?php echo base_url ?>';
     </script>
     <script src="<?php echo base_url ?>dist/js/script.js"></script>
-    <script src="<?php echo base_url ?>assets/js/scripts.js"></script>
+    <script src="<?php echo base_url ?>customer/assets/js/scripts.js"></script>
     <style>
     #main-header{
         position:relative;
+        min-height: 120px; /* Even shorter header */
         background: rgb(0,0,0)!important;
         background: radial-gradient(circle, rgba(0,0,0,0.48503151260504207) 22%, rgba(0,0,0,0.39539565826330536) 49%, rgba(0,212,255,0) 100%)!important;
     }
@@ -68,7 +70,8 @@
         left:0;
         width:100%;
         height:100%;
-        background-image:url(<?php echo base_url.$_settings->info('cover') ?>);
+        /* Modern dark-to-blue gradient with semi-transparency */
+        background: linear-gradient(135deg, rgba(44,62,80,0.95) 60%, rgba(60,141,188,0.85) 100%);
         background-repeat: no-repeat;
         background-size: cover;
         filter: drop-shadow(0px 7px 6px black);

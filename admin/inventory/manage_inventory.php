@@ -8,7 +8,48 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     }
 }
 ?>
-<div class="card card-outline card-info">
+<div class="row mb-3">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="info-box bg-danger">
+            <span class="info-box-icon"><i class="fas fa-exclamation-triangle"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Stock Out Today</span>
+                <span class="info-box-number" id="stock_out_today">0</span>
+            </div>
+        </div>
+    </div>
+    <!-- Removed Most Purchased Item info box -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="info-box bg-info">
+            <span class="info-box-icon"><i class="fas fa-file-alt"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Daily Deducted Items Report</span>
+                <button class="btn btn-light btn-sm" id="downloadDailyReportBtn">Download</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="info-box bg-success">
+            <span class="info-box-icon"><i class="fas fa-file-download"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">Download Report</span>
+                <button class="btn btn-light btn-sm" id="downloadReportBtn">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card card-outline card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Daily Sales Graph</h3>
+        <div class="float-right d-flex align-items-center">
+            <input type="date" id="report_date" class="form-control form-control-sm mr-2" value="<?php echo date('Y-m-d'); ?>">
+        </div>
+    </div>
+    <div class="card-body">
+        <canvas id="salesChart" style="min-height: 300px;"></canvas>
+    </div>
+</div>
+<div class="card card-outline card-info mt-4">
 	<div class="card-header">
 		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Inventory</h3>
 	</div>
@@ -28,24 +69,22 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
             <div class="form-group">
-				<label for="size" class="control-label">Size</label>
-                <select name="size" id="size" class="custom-select select2" required>
-                    <option value=""></option>
-                    <?php
-                        $qry = $conn->query("SELECT * FROM `sizes`");
-                        while($row= $qry->fetch_assoc()):
-                    ?>
-                    <option <?php echo isset($size) && $size == strtoupper($row['size']) ? 'selected' : '' ?>><?php echo strtoupper($row['size']) ?></option>
-                    <?php endwhile; ?>
-                </select>
-			</div>
-            <div class="form-group">
-				<label for="unit" class="control-label">Unit</label>
-                <input type="text" class="form-control form" required name="unit" value="<?php echo isset($unit) ? $unit : '' ?>">
-            </div>
-            <div class="form-group">
-				<label for="quantity" class="control-label">Beginning Quanatity</label>
+				<label for="quantity" class="control-label">Beginning Quantity</label>
                 <input type="number" class="form-control form" required name="quantity" value="<?php echo isset($quantity) ? $quantity : '' ?>">
+                <?php if(isset($id)): 
+                    $stock_status = '';
+                    if($quantity <= 0) {
+                        $stock_status = 'text-danger';
+                    } else if($quantity <= 5) {
+                        $stock_status = 'text-warning';
+                    } else {
+                        $stock_status = 'text-success';
+                    }
+                ?>
+                <small class="text-muted">
+                    Current Stock: <span class="<?php echo $stock_status ?>"><?php echo $quantity ?></span>
+                </small>
+                <?php endif; ?>
             </div>
             <div class="form-group">
 				<label for="price" class="control-label">Price</label>
@@ -121,5 +160,115 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		            [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
 		        ]
 		    })
+
+        // Load stats and chart
+        function loadStats() {
+            $.ajax({
+                url: '../get_dashboard_stats.php',
+                method: 'GET',
+                success: function(data) {
+                    $('#stock_out_today').text(data.stock_out_today || 0);
+                    $('#most_purchased_item').text(data.most_purchased_item || 'N/A');
+                }
+            });
+        }
+
+        function loadSalesChart() {
+            var selectedDate = $('#report_date').val();
+            $.ajax({
+                url: '../get_sales_data.php',
+                method: 'GET',
+                data: { date: selectedDate },
+                success: function(data) {
+                    var ctx = document.getElementById('salesChart').getContext('2d');
+                    if(window.salesChart instanceof Chart) {
+                        window.salesChart.destroy();
+                    }
+                    window.salesChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: data.labels,
+                            datasets: [{
+                                label: 'Quantity Sold',
+                                data: data.quantities,
+                                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: "Paid Products Sold (Quantity)"
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return 'Quantity Sold: ' + context.parsed.y;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Quantity Sold'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Product Name'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        // Download report button click
+        $('#downloadReportBtn').on('click', function() {
+            var selectedDate = $('#report_date').val();
+            if (!selectedDate) {
+                alert('Please select a date.');
+                return;
+            }
+            var url = '../generate_sales_report.php?date=' + encodeURIComponent(selectedDate);
+            window.open(url, '_blank');
+        });
+
+        // Download daily deducted items report button click
+        $('#downloadDailyReportBtn').on('click', function() {
+            var selectedDate = $('#report_date').val();
+            if (!selectedDate) {
+                alert('Please select a date.');
+                return;
+            }
+            var url = '../generate_daily_deducted_report.php?date=' + encodeURIComponent(selectedDate);
+            window.open(url, '_blank');
+        });
+
+        // Reload chart on date change
+        $('#report_date').on('change', function() {
+            loadSalesChart();
+        });
+
+        // Initial load
+        loadStats();
+        loadSalesChart();
+
+        // Refresh every 15 seconds
+        setInterval(loadStats, 15000);
+        setInterval(loadSalesChart, 15000);
 	})
 </script>

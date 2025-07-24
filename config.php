@@ -1,10 +1,20 @@
 <?php
-ob_start();
-ini_set('date.timezone','Asia/Manila');
-date_default_timezone_set('Asia/Manila');
-session_start();
+// Merged from initialize.php
+if(!defined('base_url')) define('base_url','https://petshopoyeee.com/');
+if(!defined('base_app')) define('base_app', str_replace('\\','/',__DIR__).'/' );
 
-require_once('initialize.php');
+if(!defined('DB_SERVER')) define('DB_SERVER','localhost');
+if(!defined('DB_USERNAME')) define('DB_USERNAME','enlmvnqs_petshop_user');
+if(!defined('DB_PASSWORD')) define('DB_PASSWORD','574jTQ{7[wShF[M@');
+if(!defined('DB_NAME')) define('DB_NAME','enlmvnqs_petshop');
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+// ... other config
+
+session_start();
+error_reporting(E_ALL);
+
 require_once('classes/DBConnection.php');
 require_once('classes/SystemSettings.php');
 $db = new DBConnection;
@@ -20,10 +30,10 @@ function validate_image($file){
 		if(is_file(base_app.$file)){
 			return base_url.$file;
 		}else{
-			return base_url.'dist/img/no-image-available.png';
+			return base_url.'uploads/no-image-available.png';
 		}
 	}else{
-		return base_url.'dist/img/no-image-available.png';
+		return base_url.'uploads/no-image-available.png';
 	}
 }
 function isMobileDevice(){
@@ -45,5 +55,9 @@ function isMobileDevice(){
     //Otherwise return false..  
     return false;
 }
-ob_end_flush();
+
+function end_load() {
+    // You can add code here to hide a loading spinner if you have one.
+    // For now, this empty function will prevent the error.
+}
 ?>

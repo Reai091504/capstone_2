@@ -1,10 +1,10 @@
 </style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
+      <aside class="main-sidebar sidebar-light elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link bg-primary text-sm">
-        <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 2.5rem;height: 2.5rem;max-height: unset">
-        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
+        <a href="<?php echo base_url ?>admin" class="brand-link bg-white text-sm">
+        <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="<?php echo $_settings->info('short_name') ?: 'Logo'; ?>" class="brand-image img-circle elevation-3" style="opacity: .8;width: 2.5rem;height: 2.5rem;max-height: unset">
+        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?: 'Shop'; ?></span>
         </a>
         <!-- Sidebar -->
         <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
@@ -78,6 +78,14 @@
                           </a>
                         </li>
                       </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=user_list" class="nav-link nav-user_list">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                          User List
+                        </p>
+                      </a>
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">

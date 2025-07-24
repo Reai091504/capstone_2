@@ -4,6 +4,7 @@ if(!class_exists('DBConnection')){
 	require_once('DBConnection.php');
 }
 class SystemSettings extends DBConnection{
+	public $is_admin = false;
 	public function __construct(){
 		parent::__construct();
 	}
@@ -41,9 +42,6 @@ class SystemSettings extends DBConnection{
 		}
 		if(isset($_POST['about_us'])){
 			file_put_contents('../about.html',$_POST['about_us']);
-		}
-		if(isset($_POST['contact_us'])){
-			file_put_contents('../contact.html',$_POST['contact_us']);
 		}
 		if(isset($_POST['privacy_policy'])){
 			file_put_contents('../privacy_policy.html',$_POST['privacy_policy']);

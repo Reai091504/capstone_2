@@ -162,3 +162,10 @@
       </ul>
     </div>
   </nav>
+
+<script>
+function end_load() {
+    // You can customize this to hide a loading spinner, etc.
+    // For now, just leave it empty to prevent errors.
+}
+</script>

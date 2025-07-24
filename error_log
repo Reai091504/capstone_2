@@ -1,0 +1,135 @@
+[18-Jul-2025 12:52:57 UTC] PHP Warning:  require_once(classes/DBConnection.php): Failed to open stream: No such file or directory in /home/enlmvnqs/public_html/config.php on line 18
+[18-Jul-2025 12:52:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'classes/DBConnection.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/enlmvnqs/public_html/config.php:18
+Stack trace:
+#0 /home/enlmvnqs/public_html/index.php(2): require_once()
+#1 {main}
+  thrown in /home/enlmvnqs/public_html/config.php on line 18
+[18-Jul-2025 12:52:58 UTC] PHP Warning:  require_once(classes/DBConnection.php): Failed to open stream: No such file or directory in /home/enlmvnqs/public_html/config.php on line 18
+[18-Jul-2025 12:52:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'classes/DBConnection.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/enlmvnqs/public_html/config.php:18
+Stack trace:
+#0 /home/enlmvnqs/public_html/index.php(2): require_once()
+#1 {main}
+  thrown in /home/enlmvnqs/public_html/config.php on line 18
+[18-Jul-2025 12:53:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 12:53:02 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 12:55:16 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 12:55:16 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 12:55:17 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 12:55:17 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:00:22 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:00:22 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:01:15 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:01:15 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:01:17 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:01:17 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:01:18 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:01:18 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:01:19 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:01:19 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[18-Jul-2025 13:01:29 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/enlmvnqs/public_html/classes/DBConnection.php on line 18
+[18-Jul-2025 13:01:29 UTC] PHP Fatal error:  Uncaught Error: mysqli object is already closed in /home/enlmvnqs/public_html/classes/SystemSettings.php:17
+Stack trace:
+#0 /home/enlmvnqs/public_html/classes/SystemSettings.php(17): mysqli->query()
+#1 /home/enlmvnqs/public_html/classes/SystemSettings.php(138): SystemSettings->load_system_info()
+#2 /home/enlmvnqs/public_html/config.php(19): require_once('/home/enlmvnqs/...')
+#3 /home/enlmvnqs/public_html/index.php(2): require_once('/home/enlmvnqs/...')
+#4 {main}
+  thrown in /home/enlmvnqs/public_html/classes/SystemSettings.php on line 17
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Trying to get property of non-object in /home/enlmvnqs/public_html/customer/view_product.php on line 3
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: img in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: product_name in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: fileO in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[20-Jul-2025 14:21:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: inv in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: inv in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: description in /home/enlmvnqs/public_html/customer/view_product.php on line 89
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: sub_category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[20-Jul-2025 14:21:58 UTC] PHP Notice:  Undefined variable: inv in /home/enlmvnqs/public_html/customer/view_product.php on line 149
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $img in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $product_name in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $fileO in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $description in /home/enlmvnqs/public_html/customer/view_product.php on line 89
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $sub_category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:24:38 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 149
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $img in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $product_name in /home/enlmvnqs/public_html/customer/view_product.php on line 27
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $fileO in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/enlmvnqs/public_html/customer/view_product.php on line 31
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 70
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/enlmvnqs/public_html/customer/view_product.php on line 71
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $description in /home/enlmvnqs/public_html/customer/view_product.php on line 89
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $sub_category_id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $id in /home/enlmvnqs/public_html/customer/view_product.php on line 103
+[21-Jul-2025 01:25:55 UTC] PHP Warning:  Undefined variable $inv in /home/enlmvnqs/public_html/customer/view_product.php on line 149
